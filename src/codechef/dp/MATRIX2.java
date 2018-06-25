@@ -13,22 +13,25 @@ public class MATRIX2 {
 		int n = Integer.parseInt(tk.nextToken());
 		int m = Integer.parseInt(tk.nextToken());
 		int i, j;
-		int count = 0;
-		char matrix[][] = new char[n][m];
+		long count = 0;
+		char matrix[][] = new char[n + 1][m + 1];
+		int dp[][] = new int[n + 1][m + 1];
 		char[] row = new char[m];
-		for (i = 0; i < n; i++) {
+		for (i = 1; i <= n; i++) {
 			String values = br.readLine();
 			row = values.toCharArray();
-			for (j = 0; j < m; j++) {
-				matrix[i][j] = row[j];
-				if (matrix[i][j] == '1')
-					count += 1;
+			for (j = 1; j <= m; j++) {
+				matrix[i][j] = row[j - 1];
 			}
 		}
-		for (i = 0; i < n - 1; i++) {
-			for (j = i; j < m - 1; j++) {
-				if (matrix[i][j] == '1' && matrix[i][j + 1] == '1' && matrix[i + 1][j + 1] == '1')
-					count += 1;
+		for (i = 1; i <= n; i++) {
+			for (j = 1; j <= m; j++) {
+				if (matrix[i][j] == '1' && matrix[i - 1][j - 1] == '1' && matrix[i - 1][j] == '1') {
+					dp[i][j] = Math.min(dp[i - 1][j], dp[i - 1][j - 1]) + 1;
+				} else if (matrix[i][j] == '1')
+					dp[i][j] = 1;
+
+				count += dp[i][j];
 			}
 		}
 		System.out.println(count);
