@@ -15,6 +15,7 @@ public class MyStacks {
 			int n = Integer.parseInt(br.readLine());
 			int disc[] = new int[n];
 			int i;
+			// initialize to max value
 			for (i = 0; i < n; i++)
 				disc[i] = Integer.MAX_VALUE;
 			StringTokenizer tk = new StringTokenizer(br.readLine());
@@ -22,6 +23,7 @@ public class MyStacks {
 				int temp = Integer.parseInt(tk.nextToken());
 				// find the index and store the next element in tht index
 				int index = find(disc, 0, n - 1, temp);
+				// store the element one by one as per the condn
 				disc[index] = temp;
 			}
 			int count = 0;
@@ -34,6 +36,9 @@ public class MyStacks {
 		}
 	}
 
+	// fn to find the index where next element shud be stored, based on binary
+	// search, if element is smaller than mid, some index of left subarray will
+	// be assigned and if its greater the index would be of right half
 	private static int find(int[] disc, int i, int j, int temp) {
 		if (i == j)
 			return i;
