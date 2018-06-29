@@ -8,6 +8,8 @@ import java.util.StringTokenizer;
 // https://discuss.codechef.com/questions/66425/strbit-editorial
 // https://www.codechef.com/viewsolution/15505304
 // https://www.codechef.com/viewsolution/6918816
+
+// not working
 public class STRBIT {
 
 	static int count = 0;
