@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 /**
  * sort elements of array according to frequency and print them, if 2 elements
- * have same freq print the smaller one firsr
+ * have same freq print the smaller one first
  *
  */
 public class SortArrayFrequency {
