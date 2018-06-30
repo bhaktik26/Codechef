@@ -11,6 +11,7 @@ public class ReverseBits {
 		int t = Integer.parseInt(br.readLine());
 		while (t-- != 0) {
 			int no = Integer.parseInt(br.readLine());
+			// converts the integer to its binary form
 			String str = Integer.toBinaryString(no);
 			int n = str.length();
 			String zeroString = "0";
