@@ -4,10 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.StringTokenizer;
 
-//gfg
-public class IdenticalArrays {
+public class ModuloArrays {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,23 +15,24 @@ public class IdenticalArrays {
 		while (t-- != 0) {
 			int n = Integer.parseInt(br.readLine());
 			StringTokenizer tk1 = new StringTokenizer(br.readLine());
-			StringTokenizer tk2 = new StringTokenizer(br.readLine());
+			Integer arr[] = new Integer[n];
 			int i = 0;
-			int a1[] = new int[n];
-			int a2[] = new int[n];
-			while (tk1.hasMoreTokens() && tk2.hasMoreTokens()) {
-				a1[i] = Integer.parseInt(tk1.nextToken());
-				a2[i] = Integer.parseInt(tk2.nextToken());
+			while (tk1.hasMoreTokens()) {
+				arr[i] = Integer.parseInt(tk1.nextToken());
 				i++;
 			}
-			Arrays.sort(a1);
-			Arrays.sort(a2);
-			// arrays.equals returns true if both arrays have same elements in
-			// same order
-			if (Arrays.equals(a1, a2))
-				System.out.println(1);
-			else
-				System.out.println(0);
+			// sort the nos in reverse order since the condn in problem is
+			// arr[i]>=arr[j]
+			Arrays.sort(arr, Comparator.reverseOrder());
+			int max = Integer.MIN_VALUE;
+			for (i = 0; i < n - 1; i++) {
+				for (int j = i + 1; j < n; j++) {
+					int modulo = arr[i] % arr[j];
+					if (modulo > max)
+						max = modulo;
+				}
+			}
+			System.out.println(max);
 		}
 	}
 }
