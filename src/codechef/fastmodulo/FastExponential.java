@@ -15,5 +15,4 @@ public class FastExponential {
 	    }
 	    return res%MOD;
 	}
-
 }
