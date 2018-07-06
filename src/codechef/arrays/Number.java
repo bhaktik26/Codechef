@@ -22,7 +22,8 @@ public class Number {
 			}
 			Arrays.sort(a);
 			int[] flag = new int[n];
-			for (i = 0; i < n; i++) {
+			i = 0;
+			while (i < n) {
 				int no = a[i];
 				while (no != 0) {
 					int digit = no % 10;
@@ -34,16 +35,17 @@ public class Number {
 				}
 				if (no == 0)
 					flag[i] = 1;
+				i++;
 			}
-
-			for (i = 0; i < n; i++) {
+			i = 0;
+			while (i < n) {
 				if (flag[i] == 1)
 					System.out.print(a[i] + " ");
+				i++;
 			}
 			if (Arrays.stream(flag).allMatch(k -> k == 0))
 				System.out.println(-1);
 			System.out.println();
 		}
-
 	}
 }
