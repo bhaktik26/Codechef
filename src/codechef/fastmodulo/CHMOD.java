@@ -21,9 +21,9 @@ public class CHMOD {
 			int left = Integer.parseInt(tk2.nextToken());
 			int right = Integer.parseInt(tk2.nextToken());
 			long modulo = Long.parseLong(tk2.nextToken());
-			int result = 1;
+			long result = 1;
 			for(i=left-1;i<=right-1;i++)
-				result = result * arr[i];
+				result = (result * arr[i])%modulo;
 			System.out.println(result%modulo);		
 		}
 	}
